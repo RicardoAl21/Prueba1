@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>{{tituloAccion}} Usuario</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formUser">
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de Usuario</mat-label>
+          <input matInput formControlName="usuario">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Primer Nombre</mat-label>
+          <input matInput formControlName="primernombre">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Segundo Nombre</mat-label>
+          <input matInput formControlName="segundonombre">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Primer Apellido</mat-label>
+          <input matInput formControlName="primerapellido">
+        </mat-form-field>
+
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Segundo Apellido</mat-label>
+          <input matInput formControlName="segundoapellido">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Departamento</mat-label>
+          <mat-select matNativeControl formControlName="IdDepartamento">
+            <mat-option *ngFor= "let item of listaDepartamento" [value]="item.idDepartamento">
+              {{item.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>Cargo</mat-label>
+          <mat-select  formControlName="IdCargo">
+            <mat-option *ngFor="let item of listCargo" [value]="item.idCargo">
+              {{item.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="addEditUser()">{{botonAccion}}</button>
+</div>
